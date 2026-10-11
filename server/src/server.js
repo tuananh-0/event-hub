@@ -2,11 +2,19 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 
+// Import hàm kết nối database
+const connectDB = require('./config/db');
+
 const app = express();
+
+// Kết nối Cơ sở dữ liệu MongoDB
+connectDB();
+
+// Middlewares
 app.use(cors());
 app.use(express.json());
 
-// Đường dẫn thử nghiệm (API endpoint)
+// Routes kiểm tra
 app.get('/api/v1/health', (req, res) => {
   res.json({ status: 'OK', message: 'Event Hub API Server đang chạy thành công!' });
 });
