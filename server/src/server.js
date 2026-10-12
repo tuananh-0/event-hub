@@ -27,3 +27,8 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server đang chạy tại cổng http://localhost:${PORT}`);
 });
+// Import ticket routes
+const ticketRoutes = require('./routes/ticketRoutes');
+
+// Khai báo đường dẫn API Ticket
+app.use('/api/v1/tickets', ticketRoutes);
